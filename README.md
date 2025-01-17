@@ -1,1 +1,1 @@
-# US_VISA_Prediction
+# US_VISA_Prediction![alt text](<Screenshot 2025-01-18 001819-1.png>)![alt text](<Screenshot 2025-01-18 001854.png>)
