@@ -1,0 +1,58 @@
+/* General Styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: linear-gradient( 91.7deg,  rgba(135,206,235,1) 7.3%, rgba(255,154,139,1) 40.3%, rgba(255,195,160,1) 57.9%, rgba(255,215,0,1) 93.5% );
+  }
+  
+  /* Container Styling */
+  .container {
+    background: linear-gradient(90.1deg, rgb(61, 175, 201) 14.5%, rgba(198, 231, 249, 1) 135.4%);
+    margin: 0 auto;
+    width:50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius:1rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.507);
+    display:flex;
+    flex-direction:column;
+    justify-items: center;
+    align-content: center;
+    box-sizing: border-box;
+    border:1px solid black;
+  }
+  
+
+  .center-table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-radius:1rem;
+  }
+  .center-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border:1px solid black;
+    border-radius:1rem;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #86c7fc;
+  }
+  
+  /* Heading Styles */
+  h1 {
+    margin-top: 20px;
+    color: #333;
+  }

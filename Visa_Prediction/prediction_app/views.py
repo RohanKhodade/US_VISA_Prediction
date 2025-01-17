@@ -24,6 +24,8 @@ with open(PREPROCESSOR_PATH,"rb") as preprocessor_file:
 
 def predict(request):
     
+    status=""
+    
     if request.method=="POST":
         # get input from form
         continent = request.POST.get('continent')
@@ -46,7 +48,7 @@ def predict(request):
         
         
         
-        data={
+        user_data={
             
         "continent": continent,
         'education_of_employee' :education_of_employee,
@@ -59,7 +61,7 @@ def predict(request):
         "company_age": company_age,
         "unit_of_wage" :unit_of_wage,
         }
-        data = {key: 'Y' if value == 'YES' else 'N' if value == 'NO' else value for key, value in data.items()}
+        data = {key: 'Y' if value == 'YES' else 'N' if value == 'NO' else value for key, value in user_data.items()}
 
         
         data=pd.DataFrame([data])
@@ -68,15 +70,16 @@ def predict(request):
         
         predict=model.predict(transformed_data)
         
-        status=""
+    
         if predict==1:
-            status="NotAllowed"
+            status="Denied"
             print("Denied")
         else:
-            status="Allowed"
+            status="Approved"
             print("Allowed")
             
         request.session["status"]=status
+        request.session["data"]=user_data
             
             
         return redirect("result") 
@@ -87,9 +90,14 @@ def predicted(request):
     
     
     status = request.session.get("status", "")
+    data=request.session.get("data",{})
+    
+    if not status or not data:
+        return redirect("get_predict")
     
     # Clear the session after displaying the result to avoid unnecessary session data persistence
     del request.session["status"]
-    return render(request,"result.html",{"status":status})
+    del request.session["data"]
+    return render(request,"result.html",{"status":status,"data":data})
                           
                           
